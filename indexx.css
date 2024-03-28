@@ -1,0 +1,42 @@
+
+body {
+    background-color: #fdf5e2;
+}
+
+.Header{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+    letter-spacing: 2px;
+
+    
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 10px 20px; /* Padding around the navigation items */
+    text-align: center;
+    size: 100px;
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 120px; /* Add some spacing between items */
+}
+
+nav ul li a {
+    color: white; /* Text color for navigation links */
+    text-decoration: none; /* Remove underline from links */
+    size: 100px;
+    font-size: x-large;
+}
+#heading1{
+    font-size: large;
+    align-items: left;
+}

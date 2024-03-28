@@ -1,0 +1,102 @@
+body{
+    background-color: #9bedff;
+}
+
+#header1{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 70px;
+    letter-spacing: 2px;
+
+    
+}
+.Header{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 10px 20px; /* Padding around the navigation items */
+    text-align: center;
+    size: 100px;
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 120px; /* Add some spacing between items */
+}
+
+nav ul li a {
+    color: white; /* Text color for navigation links */
+    text-decoration: none; /* Remove underline from links */
+    size: 100px;
+    font-size: x-large;
+    word-spacing: 20px;
+}
+
+#marks {
+    height: 15px;
+    width: 200px; /* Set the width to your desired size */
+    padding: 5px; /* Add some padding for better visual appearance */
+    font-size: 16px; /* Adjust font size if needed */
+    text-align: center;
+}
+
+
+.slider-container {
+    align-content: center;
+    max-width: 100px; /* Set maximum width for better layout */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+.slider-label {
+    display: block; /* Display labels on separate lines */
+    margin-bottom: 5px; /* Add some space between labels */
+}
+
+.slider {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 10%; /* Full-width */
+    height: 5px; /* Set height of slider */
+    background: #ffffff; /* Grey background */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency */
+    -webkit-transition: .2s; /* 0.2 second transition on hover */
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+.slider::-webkit-slider-thumb {
+    
+    width: 25px; /* Set width of slider thumb */
+    height: 25px; /* Set height of slider thumb */
+    background: #4caf50; /* Green thumb */
+    border-radius: 50%; /* Circle */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set width of slider thumb */
+    height: 25px; /* Set height of slider thumb */
+    background: #4caf50; /* Green thumb */
+    border: none; /* No border */
+    border-radius: 50%; /* Circle */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.SLIDER{
+    text-align: center;
+}

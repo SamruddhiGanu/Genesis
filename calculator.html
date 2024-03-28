@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGPA Calculator</title>
+<style>
+/* Resetting default browser styles */
+:root {
+  --platform-margin: 15px; /* Adjust margin */
+  --input-width: 80px; /* Adjust input width */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('q.jpg') no-repeat fixed; /* Set background image as static wallpaper */
+  background-size: cover; /* Cover the entire viewport */
+
+}
+
+/* Full-page container */
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative; /* Added position relative */
+  padding-bottom: 200px; /* Add more white space at the bottom */
+}
+
+/* Header section */
+.header {
+  background-color: transparent; /* Remove the black strip */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.header img {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px; /* Adjust the height as needed */
+}
+
+/* Main content section */
+.content {
+  width: 100%;
+  height: 75%; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: none;
+  margin-bottom: -1000px; /* Adjust as needed */
+}
+
+.calculator-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: var(--platform-margin); /* Adjust margin */
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.input-group input {
+  width: var(--input-width); /* Adjust input width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  background-color: #0e5d99;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.result-container {
+  margin-top: 30px;
+  display: none;
+}
+
+.result-box {
+  background-color: #0e5d99;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  margin: var(--result-box-margin) auto 1000; /* Adjust margin */
+}
+
+.result {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.firecracker {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 999;
+  display: none;
+  animation: firecracker-animation 1s ease-out forwards;
+}
+
+/* Keyframe animation for the firecracker */
+@keyframes firecracker-animation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Spinning circle animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading animation */
+.loading {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #0091ff;
+  animation: spin 1s linear infinite;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <img src="SPPU.jpg" alt="University Banner">
+  </div>
+  <div class="content">
+    <div class="calculator-form" id="calculatorForm">
+      <h2>Enter Marks</h2>
+      <div class="input-group">
+        <label for="mathsInsem">Maths:</label>
+        <input type="number" id="mathsInsem" name="mathsInsem" placeholder="Insem" required>
+        <input type="number" id="mathsEndsem" name="mathsEndsem" placeholder="Endsem" required>
+      </div>
+      <div class="input-group">
+        <label for="chem_physicsInsem">Engg. Chem/Physics:</label>
+        <input type="number" id="chem_physicsInsem" name="chem_physicsInsem" placeholder="Insem" required>
+        <input type="number" id="chem_physicsEndsem" name="chem_physicsEndsem" placeholder="Endsem" required>
+      </div>
+      <div class="input-group">
+        <label for="bee_bxeInsem">BEE/BXE:</label>
+        <input type="number" id="bee_bxeInsem" name="bee_bxeInsem" placeholder="Insem" required>
+        <input type="number" id="bee_bxeEndsem" name="bee_bxeEndsem" placeholder="Endsem" required>
+      </div>
+      <div class="input-group">
+        <label for="pps_mechanicsInsem">PPS/Mechanics:</label>
+        <input type="number" id="pps_mechanicsInsem" name="pps_mechanicsInsem" placeholder="Insem" required>
+        <input type="number" id="pps_mechanicsEndsem" name="pps_mechanicsEndsem" placeholder="Endsem" required>
+      </div>
+      <div class="input-group">
+        <label for="smeInsem">SME:</label>
+        <input type="number" id="smeInsem" name="smeInsem" placeholder="Insem" required>
+        <input type="number" id="smeEndsem" name="smeEndsem" placeholder="Endsem" required>
+      </div>
+      <div class="input-group">
+        <label for="termWork">Term Work (Average):</label>
+        <input type="number" id="termWork" name="termWork" placeholder="Out of 25" required>
+      </div>
+      <div class="button-container">
+        <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
+      </div>
+    </div>
+    <div class="result-container" id="resultContainer">
+      <div class="result-box" id="resultBox">
+        <div class="result" id="result"></div>
+        <div class="firecracker" id="firecracker"></div>
+      </div>      
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function calculateCGPA() {
+    var loading = document.createElement("div");
+    loading.classList.add("loading");
+    document.getElementById("calculatorForm").appendChild(loading);
+
+    setTimeout(function() {
+      var mathsI = parseFloat(document.getElementById("mathsInsem").value) || 0;
+      var mathsE = parseFloat(document.getElementById("mathsEndsem").value) || 0;
+      var chemI = parseFloat(document.getElementById("chem_physicsInsem").value) || 0;
+      var chemE = parseFloat(document.getElementById("chem_physicsEndsem").value) || 0;
+      var beeI = parseFloat(document.getElementById("bee_bxeInsem").value) || 0;
+      var beeE = parseFloat(document.getElementById("bee_bxeEndsem").value) || 0;
+      var ppsI = parseFloat(document.getElementById("pps_mechanicsInsem").value) || 0;
+      var ppsE = parseFloat(document.getElementById("pps_mechanicsEndsem").value) || 0;
+      var smeI = parseFloat(document.getElementById("smeInsem").value) || 0;
+      var smeE = parseFloat(document.getElementById("smeEndsem").value) || 0;
+      var term = parseFloat(document.getElementById("termWork").value) || 0;
+
+        var totalMarks = 625;
+        var totalMarksObtained = mathsI + mathsE + chemI + chemE + beeI + beeE + ppsI + ppsE + smeI + smeE + term*5;
+ 
+        
+        var cgpa = (totalMarksObtained / totalMarks) * 10 + 1.2;
+
+        // Check if CGPA exceeds 10
+        if (cgpa > 10) {
+            cgpa = 10;
+        }
+
+        var result = document.getElementById("result");
+        result.innerHTML = "Your CGPA is: " + cgpa.toFixed(2);
+
+        document.getElementById("calculatorForm").removeChild(loading);
+
+        var resultContainer = document.getElementById("resultContainer");
+        resultContainer.style.display = "block";
+        var firecracker = document.getElementById("firecracker");
+        firecracker.style.display = "block";
+    }, 2000);
+}
+
+window.onload = function() {
+    window.scrollTo(0, 0);
+};
+</script>
+</body>
+</html>
