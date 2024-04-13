@@ -1,17 +1,3 @@
-
-body {
-    background-color: #a3c315;
-}
-
-.Header{
-    text-align: center;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 35px;
-    letter-spacing: 2px;
-
-    
-}
-
 nav {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     padding: 10px 20px; /* Padding around the navigation items */
@@ -35,22 +21,5 @@ nav ul li a {
     text-decoration: none; /* Remove underline from links */
     size: 100px;
     font-size: x-large;
-}
-h2 {
-    font-weight: bold;
-    font-size: 40px;
-}
-h3{
-    font-size: 35px;
-}
-p{
-    font-size: 28px;
-}
-.content{
-    text-align: left;
-    text-size-adjust: 400px;
-}
-#heading1{
-    font-size: large;
-    align-items: left;
+    word-spacing: 20px;
 }
