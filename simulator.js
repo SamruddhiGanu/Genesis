@@ -8,20 +8,28 @@ function calculateMarks() {
     var subject5MarksI = parseFloat(document.getElementById('subject5').value);
 
     // Assuming maximum marks for each subject in in-semester exams is 100
-    var totalMarks = 625; // You can change this if necessary
+    var totalMarks = 500; // You can change this if necessary
 
     // Assuming a linear relationship between CGPA and marks in in-semester exams
-    var constant = totalMarks / 10;
 
     // Calculating marks obtained in in-semester exams
     var inSemMarks = subject1MarksI + subject2MarksI+ subject3MarksI+ subject4MarksI + subject5MarksI;
     // Calculating predicted marks for end semester exams
     var endSemMarks = totalMarks - inSemMarks;
-    var subject1MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject1MarksI )/ 100) * 70);
-    var subject2MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject2MarksI )/ 100) * 70);    
-    var subject3MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject3MarksI )/ 100) * 70);    
-    var subject4MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject4MarksI )/ 100) * 70);    
-    var subject5MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject5MarksI )/ 100) * 70);    
+    var endTotal = (cgpa-1.2)*50 - inSemMarks;
+
+    // var subject1MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject1MarksI )/ 100) * 70);
+    // var subject2MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject2MarksI )/ 100) * 70);     
+    // var subject3MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject3MarksI )/ 100) * 70);     
+    // var subject4MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject4MarksI )/ 100) * 70);     
+    // var subject5MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject5MarksI )/ 100) * 70);     
+    
+    var subject1MarksE = Math.round(4+ 0.7 * (endTotal/5) + 0.4* ((30-subject1MarksI )/ 30) * 70);
+    var subject2MarksE = Math.round(4+ 0.7 * (endTotal/5) + 0.4* ((30-subject2MarksI )/ 30) * 70);
+    var subject3MarksE = Math.round(4+ 0.7 * (endTotal/5) + 0.4* ((30-subject3MarksI )/ 30) * 70);
+    var subject4MarksE = Math.round(4+ 0.7 * (endTotal/5) + 0.4* ((30-subject4MarksI )/ 30) * 70);
+    var subject5MarksE = Math.round(4+ 0.7 * (endTotal/5) + 0.4* ((30-subject5MarksI )/ 30) * 70);
+ 
 
     
     var ticketHTML = `
