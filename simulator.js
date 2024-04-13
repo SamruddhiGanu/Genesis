@@ -17,11 +17,11 @@ function calculateMarks() {
     var inSemMarks = subject1MarksI + subject2MarksI+ subject3MarksI+ subject4MarksI + subject5MarksI;
     // Calculating predicted marks for end semester exams
     var endSemMarks = totalMarks - inSemMarks;
-    var subject1MarksE = Math.round( 0.1 * ((cgpa )/ 10) * 70 + 0.9* ((100-subject1MarksI )/ 100) * 70);
-    var subject2MarksE = Math.round( 0.1 * ((cgpa )/ 10) * 70 + 0.9* ((100-subject2MarksI )/ 100) * 70);    
-    var subject3MarksE = Math.round( 0.1 * ((cgpa )/ 10) * 70 + 0.9* ((100-subject3MarksI )/ 100) * 70);    
-    var subject4MarksE = Math.round( 0.1 * ((cgpa )/ 10) * 70 + 0.9* ((100-subject4MarksI )/ 100) * 70);    
-    var subject5MarksE = Math.round( 0.1 * ((cgpa )/ 10) * 70 + 0.9* ((100-subject5MarksI )/ 100) * 70);    
+    var subject1MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject1MarksI )/ 100) * 70);
+    var subject2MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject2MarksI )/ 100) * 70);    
+    var subject3MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject3MarksI )/ 100) * 70);    
+    var subject4MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject4MarksI )/ 100) * 70);    
+    var subject5MarksE = Math.round(2+ 1 * ((cgpa-1.2 )/ 10) * 70 + 0.3* ((100-subject5MarksI )/ 100) * 70);    
 
     
     var ticketHTML = `
