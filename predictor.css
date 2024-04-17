@@ -1,5 +1,8 @@
-body{
-    background-color: #9bedff;
+body {
+    background: url('q.jpg') no-repeat fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 #header1{
@@ -17,6 +20,7 @@ body{
 }
 
 nav {
+    margin-top: 9px;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     padding: 10px 20px; /* Padding around the navigation items */
     text-align: center;
@@ -39,7 +43,6 @@ nav ul li a {
     text-decoration: none; /* Remove underline from links */
     size: 100px;
     font-size: x-large;
-    word-spacing: 20px;
 }
 
 #marks {
@@ -50,7 +53,16 @@ nav ul li a {
     text-align: center;
 }
 
-
+.white-box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; 
+}
 .slider-container {
     align-content: center;
     max-width: 100px; /* Set maximum width for better layout */
@@ -61,13 +73,32 @@ nav ul li a {
     display: block; /* Display labels on separate lines */
     margin-bottom: 5px; /* Add some space between labels */
 }
-
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    width: 200px;
+    padding: 10px;
+    background-color: #0e5d99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
 .slider {
     -webkit-appearance: none; /* Remove default styling */
     appearance: none;
     width: 10%; /* Full-width */
     height: 5px; /* Set height of slider */
-    background: #ffffff; /* Grey background */
+    background: #2f373a; /* Grey background */
     border-radius: 5px; /* Rounded corners */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency */
@@ -142,33 +173,21 @@ nav ul li a {
 }
 
 .ticket-container {
-    position: fixed;
-    bottom: 20px;
+    position: absolute; /* Change to absolute positioning */
+    bottom: -50px; /* Adjust the positioning as per your design */
     left: 50%;
+    margin-top: 100px;
     transform: translateX(-50%);
-    background-color: #ffffff;
+    background-color: #ffffffb1;
     border: 2px solid #000000;
     border-radius: 10px;
     padding: 20px;
     display: none;
-    z-index: 9999; /* Ensure it's above other content */
+    z-index: 1000; /* Ensure it's above the white box */
+    bottom: auto;
 }
+
 
 .subject {
     margin-bottom: 10px;
 }
-button {
-    width: 200px;
-    padding: 10px;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-    color: #ffffff;
-  }

@@ -1,6 +1,11 @@
 
 body {
-    background-color: #d1ffdc;
+    /* background: url('q.jpg') no-repeat fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0; */
+    background-color: rgb(255, 255, 252);
+    
 }
 
 .Header{

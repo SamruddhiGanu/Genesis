@@ -1,7 +1,44 @@
-body{
-    background-color: #ccccff;
+body {
+    background: url('q.jpg') no-repeat fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    
+}
+.white-box {
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 40%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+    z-index: 1; 
+    text-align: center;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    width: 200px;
+    padding: 10px;
+    background-color: #0e5d99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
 .header{
     text-align: center;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -12,6 +49,7 @@ body{
 }
 
 nav {
+    margin-top: 9px;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     padding: 10px 20px; /* Padding around the navigation items */
     text-align: center;
