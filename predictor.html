@@ -15,25 +15,46 @@
             <li><a href="simulator.html">Simulator</a></li>
         </ul>
     </nav>
-    <div class=" Header">
-            <h1 id="header1">CGPA PREDICTOR</h1>
-            <label for="marks">Please input the desired CGPA:</label>
-            <input type="number" id="marks" name="marks">
+    <div class="Header">
+        <h1 id="header1">CGPA PREDICTOR</h1>
+        <label for="marks">Please input the desired CGPA:</label>
+        <input type="number" id="marks" name="marks">
     </div>
     <div class="SLIDER">
-        <label class="slider-label" for="Mathematics">Mathematics:</label>
-        <input type="range" min="1" max="3" value="5" class="slider" id="Mathematics" name="Mathematics">
-        <label class="slider-label" for="Mechanics / PPS">Mechanics / PPS:</label>
-        <input type="range" min="1" max="3" value="5" class="slider" id="Mechanics / PPS" name="Mechanics / PPS">    
-        <label class="slider-label" for="Physics / Chemistry">Physics / Chemistry:</label>
-        <input type="range" min="1" max="3" value="5" class="slider" id="Mcchanics / PPS" name="Mcchanics / PPS"> 
-        <!-- Sliders for each subject -->
-        <label class="slider-label" for="subject1Slider">Subject 1 Difficulty:</label>
-        <input type="range" min="0" max="2" value="1" class="slider" id="subject1Slider" name="subject1Slider" oninput="updateSliderValue('subject1Slider')">
-        <output id="subject1Output">Medium</output>
-
-        <!-- Repeat the above for other subjects (Subject 2 to Subject 5) -->
+        <h3>Choose the difficulty level of the subjects faced by you :</h3>
+        <!-- Subject 1 -->
+        <div class="subject-container">
+            <label class="subject-label" for="Mathematics"><b>Mathematics:</b></label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="Mathematics" name="Mathematics" title="Difficulty Level">
+        </div>
+        <!-- Subject 2 -->
+        <div class="subject-container">
+            <label class="subject-label" for="Mechanics_PPS"><b>Mechanics / PPS:</b></label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="Mechanics_PPS" name="Mechanics_PPS" title="Difficulty Level">
+        </div>
+        <!-- Subject 3 -->
+        <div class="subject-container">
+            <label class="subject-label" for="Physics_Chemistry"><b>Physics / Chemistry:</b></label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="Physics_Chemistry" name="Physics_Chemistry" title="Difficulty Level">
+        </div>
+        <!-- Subject 4 -->
+        <div class="subject-container">
+            <label class="subject-label" for="Subject4"><b>BXE / BEE:</b></label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="Subject4" name="Subject4" title="Difficulty Level">
+        </div>
+        <!-- Subject 5 -->
+        <div class="subject-container">
+            <label class="subject-label" for="Subject5"><b>SME :</b></label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="Subject5" name="Subject5" title="Difficulty Level">
+        </div>
     </div>
-    <button type="button" onclick="calculateMarks()">Calculate Marks</button>
+    <!-- Display marks for each subject -->
+    <div class="ticket-container" id="ticket"></div>
+    <div class="button-container">
+        <button type="button" onclick="calculateMarks()">Calculate Marks</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="predictor.js"></script>
 </body>
 </html>

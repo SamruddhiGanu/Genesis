@@ -67,50 +67,52 @@
   </div>
 </div>
 <script>
-function calculateCGPA() {
+  function calculateCGPA() {
     var loading = document.createElement("div");
     loading.classList.add("loading");
     document.getElementById("calculatorForm").appendChild(loading);
 
     setTimeout(function() {
-      var mathsI = parseFloat(document.getElementById("mathsInsem").value) || 0;
-      var mathsE = parseFloat(document.getElementById("mathsEndsem").value) || 0;
-      var chemI = parseFloat(document.getElementById("chem_physicsInsem").value) || 0;
-      var chemE = parseFloat(document.getElementById("chem_physicsEndsem").value) || 0;
-      var beeI = parseFloat(document.getElementById("bee_bxeInsem").value) || 0;
-      var beeE = parseFloat(document.getElementById("bee_bxeEndsem").value) || 0;
-      var ppsI = parseFloat(document.getElementById("pps_mechanicsInsem").value) || 0;
-      var ppsE = parseFloat(document.getElementById("pps_mechanicsEndsem").value) || 0;
-      var smeI = parseFloat(document.getElementById("smeInsem").value) || 0;
-      var smeE = parseFloat(document.getElementById("smeEndsem").value) || 0;
-      var term = parseFloat(document.getElementById("termWork").value) || 0;
-
-        var totalMarks = 625;
-        var totalMarksObtained = mathsI + mathsE + chemI + chemE + beeI + beeE + ppsI + ppsE + smeI + smeE + term*5;
- 
-        
-        var cgpa = (totalMarksObtained / totalMarks) * 10 + 1.2;
-
-        // Check if CGPA exceeds 10
-        if (cgpa > 10) {
-            cgpa = 10;
-        }
-
+        var mathsI = parseFloat(document.getElementById("mathsInsem").value) || 0;
+        var mathsE = parseFloat(document.getElementById("mathsEndsem").value) || 0;
+        var chemI = parseFloat(document.getElementById("chem_physicsInsem").value) || 0;
+        var chemE = parseFloat(document.getElementById("chem_physicsEndsem").value) || 0;
+        var beeI = parseFloat(document.getElementById("bee_bxeInsem").value) || 0;
+        var beeE = parseFloat(document.getElementById("bee_bxeEndsem").value) || 0;
+        var ppsI = parseFloat(document.getElementById("pps_mechanicsInsem").value) || 0;
+        var ppsE = parseFloat(document.getElementById("pps_mechanicsEndsem").value) || 0;
+        var smeI = parseFloat(document.getElementById("smeInsem").value) || 0;
+        var smeE = parseFloat(document.getElementById("smeEndsem").value) || 0;
+        var term = parseFloat(document.getElementById("termWork").value) || 0;
+          
+        // Respective GPs
+        var gp1 = 7, gp2 = 7, gp3 = 7, gp4 = 7, gp5 = 7, gp6 = 7;; 
+        var M = mathsI + mathsE, C = chemI + chemE, B = beeI + beeE, P = ppsI + ppsE, S = smeI + smeE, T = term;
+        if (M >= 80) gp1 = 10; else if (M >= 75) gp1 = 9; else if (M >= 70) gp1 = 8;
+        if (C >= 80) gp2 = 10; else if (C >= 75) gp2 = 9; else if (C >= 70) gp2 = 8;
+        if (B >= 80) gp3 = 10; else if (B >= 75) gp3 = 9; else if (B >= 70) gp3 = 8;
+        if (P >= 80) gp4 = 10; else if (P >= 75) gp4 = 9; else if (P >= 70) gp4 = 8;
+        if (S >= 80) gp5 = 10; else if (S >= 75) gp5 = 9; else if (S >= 70) gp5 = 8;
+        if (T >= 20) gp6 = 10; else if (T >= 18.75) gp6 = 9; else if (T >= 17.5) gp6 = 8;
+  
+        // Calculate CGPA based on acquired GP range
+        var cgpa = ((((gp1 + gp2 + gp3 + gp4 + gp5) * 3) + (gp6 * 7)) / 220);
         var result = document.getElementById("result");
-        result.innerHTML = "Your CGPA is: " + cgpa.toFixed(2);
-
+        result.innerHTML = "Your CGPA is: " + (cgpa * 10).toFixed(2);
+  
         document.getElementById("calculatorForm").removeChild(loading);
-
+  
         var resultContainer = document.getElementById("resultContainer");
         resultContainer.style.display = "block";
         var firecracker = document.getElementById("firecracker");
         firecracker.style.display = "block";
+  
+        console.log("CGPA Calculated:", (cgpa * 10).toFixed(2));
     }, 2000);
 }
-
-window.onload = function() {
-    window.scrollTo(0, 0);
-};
-</script>
+  </script>
+  </body>
+  </html>
+  
 </body>
 </html>

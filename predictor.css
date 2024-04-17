@@ -74,6 +74,19 @@ nav ul li a {
     -webkit-transition: .2s; /* 0.2 second transition on hover */
     transition: opacity .2s;
 }
+.slider:hover::after {
+    content: attr(title); /* Show the value of title attribute as a tooltip */
+    position: absolute;
+    top: -30px; /* Adjust the tooltip position */
+    left: 50%; /* Center the tooltip */
+    transform: translateX(-50%); /* Center the tooltip */
+    background-color: rgba(0, 0, 0, 0.8); /* Tooltip background color */
+    color: #fff; /* Tooltip text color */
+    padding: 5px 10px; /* Padding for the tooltip */
+    border-radius: 5px; /* Border radius */
+    font-size: 14px; /* Font size for the tooltip */
+}
+
 
 .slider:hover {
     opacity: 1; /* Full opacity on hover */
@@ -97,6 +110,65 @@ nav ul li a {
     cursor: pointer; /* Cursor on hover */
 }
 
-.SLIDER{
-    text-align: center;
+.SLIDER {
+    text-align: center; /* Center the subject containers */
+    font-size: large;
 }
+
+.subject-container {
+    display: block; /* Display as block to ensure one below the other */
+    margin-bottom: 10px; /* Adjust spacing between subjects */
+}
+
+.subject-label {
+    display: inline-block; /* Display as inline-block to allow for width calculation */
+    width: 160px; /* Set width for consistent spacing */
+    text-align: right; /* Align text to the right */
+}
+
+.slider {
+    display: inline-block; /* Display as inline-block */
+    vertical-align: middle; /* Align slider vertically with text */
+    width: 200px; /* Adjust width of the slider */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+}
+
+.button-container button {
+    /* Optionally, add more styling for the button */
+}
+
+.ticket-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    display: none;
+    z-index: 9999; /* Ensure it's above other content */
+}
+
+.subject {
+    margin-bottom: 10px;
+}
+button {
+    width: 200px;
+    padding: 10px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+    color: #ffffff;
+  }

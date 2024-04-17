@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPA Simulator</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: url('q.jpg') no-repeat fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.content {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: center;
+}
+.header {
+    margin-bottom: 30px;
+}
+h1, h2 {
+    color: #0073ff;
+}
+input[type="number"] {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #fa4343;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #ffc823;
+}
+.result-container {
+    margin-top: 30px;
+    display: none;
+}
+.result-box {
+    background-color: rgba(255, 184, 32, 0.9);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.subject-name {
+    font-weight: bold;
+}
+.subject-score {
+    background-color: #fa4343;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.firecracker {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 999;
+    display: none;
+    animation: firecracker-animation 1s ease-out forwards;
+}
+@keyframes firecracker-animation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div class="header">
+            <img class="university-banner" src="SPPU.jpg" alt="University Banner">
+            <h1>GPA Simulator</h1>
+        </div>
+        <div class="calculator-form" id="calculatorForm">
+            <h2>Enter Your Desired GPA</h2>
+            <input type="number" id="desiredCGPA" placeholder="Desired CGPA" min="0" max="10" step="0.01">
+            <button type="button" onclick="calculateMinimumMarks()">Calculate</button>
+        </div>
+        <div class="result-container" id="resultContainer">
+            <div class="result-box" id="resultBox">
+                <div class="result" id="result"></div>
+                <div class="firecracker" id="firecracker"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function calculateMinimumMarks() {
+        var desiredCGPA = parseFloat(document.getElementById("desiredCGPA").value);
+    
+        if (desiredCGPA > 10) {
+            alert("Error: GPA cannot be more than 10.");
+            return; // Exit the function if GPA is more than 10
+        }
+    
+        var subjects = [
+            { name: "Maths", dif: 94},
+            { name: "Engg. Chem/Physics", dif:83},
+            { name: "BEE/BXE",dif:83},
+            { name: "PPS/Mechanics",dif:80},
+            { name: "SME",dif:86}
+        ];
+    
+        var result = "<h3>Minimum marks needed [InSem + EndSem] for a GPA of " + desiredCGPA + ":</h3>";
+        result += "<div class='result-item'><span class='subject-name'>Subject</span><span class='subject-score'>Marks</span></div>";
+        subjects.forEach(subject => {
+            var minMarks = subject.dif * (desiredCGPA / 10);
+            result += `<div class='result-item'><span class='subject-name'>${subject.name}</span><span class='subject-score'>${minMarks.toFixed(2)}</span></div>`;
+        });
+    
+        document.getElementById("result").innerHTML = result;
+        document.getElementById("resultContainer").style.display = "block";
+    
+        var firecracker = document.getElementById("firecracker");
+        firecracker.style.display = "block";
+        setTimeout(function() {
+            firecracker.style.display = "none";
+        }, 1000);
+    }
+    </script>
+</body>
+</html>
