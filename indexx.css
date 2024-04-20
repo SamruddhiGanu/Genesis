@@ -1,11 +1,14 @@
 
 body {
-    /* background: url('q.jpg') no-repeat fixed;
+    background: url('Qblur.jpg') no-repeat fixed;
     background-size: cover;
     margin: 0;
-    padding: 0; */
+    padding: 0; 
     background-color: rgb(255, 255, 252);
     
+}
+.h1{
+    font-size: 90px;
 }
 
 .Header{
@@ -17,6 +20,11 @@ body {
     
 }
 
+.content{
+    background-color: rgba(240, 248, 255, 0);
+    margin: 20px;
+    
+}
 nav {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     padding: 10px 20px; /* Padding around the navigation items */
