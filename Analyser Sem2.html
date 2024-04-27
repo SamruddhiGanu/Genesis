@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyser</title>
+    <link href="Analyser.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Calculator Sem2.html">Calculator</a></li>
+            <li><a href="Aim Assistor Sem2.html">AimAssistor</a></li>
+            <li><a href="Analyser Sem2.html">Analyser</a></li>
+            <li><a href="Simulator.html">Simulator</a></li>
+        </ul>
+    </nav>
+    <div class="header">
+        <h1 id="header1" style="font-size: 1.5em;">Analyser</h1>
+    </div>
+    <div class="white-box"> <!-- Added the missing closing bracket -->
+        <div class="container">
+            <h2>Enter CGPA and InSem Marks</h2>
+            <div>
+                <label for="cgpa"><b>CGPA :</b></label> <!-- Corrected the closing tag for 'b' element -->
+                <input type="number" id="cgpa" step="0.25" min="0" max="10" placeholder="Enter CGPA">
+            </div>
+            <br>
+            <div class="subject-row">
+                <div class="subject-name">EM 1:</div>
+                <div class="subject-box">
+                    <input type="number" id="subject1" step="1" min="0" max="30" placeholder="Marks">
+                </div>
+            </div>
+            <div class="subject-row">
+                <div class="subject-name">Chem/Phy:</div>
+                <div class="subject-box">
+                    <input type="number" id="subject2" step="1" min="0" max="30" placeholder="Marks">
+                </div>
+            </div>
+            <div class="subject-row">
+                <div class="subject-name">Bxe/Bee:</div>
+                <div class="subject-box">
+                    <input type="number" id="subject3" step="1" min="0" max="30" placeholder="Marks">
+                </div>
+            </div>
+            <div class="subject-row">
+                <div class="subject-name">PPS/Mechanics:</div>
+                <div class="subject-box">
+                    <input type="number" id="subject4" step="1" min="0" max="30" placeholder="Marks">
+                </div>
+            </div>
+            <!-- <div class="subject-row">
+                <div class="subject-name">Graphics:</div>
+                <div class="subject-box">
+                    <input type="number" id="subject5" step="1" min="0" max="30" placeholder="Marks">
+                </div> -->
+            <br>
+            <button onclick="calculateMarks()">Calculate EndSem Marks</button>
+        </div>
+        <!-- Placeholders for displaying predicted end semester marks -->
+        <div id="resultContainer"></div> <!-- Added a container for displaying the results -->
+    </div>
+    <script src="Analyser Sem2 .js"></script>
+</body>
+</html>

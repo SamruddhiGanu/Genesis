@@ -1,6 +1,6 @@
 
 body {
-    background: url('Qblur.jpg') no-repeat fixed;
+    background: url('Qblur.png') no-repeat fixed;
     background-size: cover;
     margin: 0;
     padding: 0; 
@@ -12,6 +12,7 @@ body {
 }
 
 .Header{
+    color: black;
     text-align: center;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 35px;
@@ -36,11 +37,12 @@ nav ul {
     list-style-type: none; /* Remove bullet points */
     margin: 0;
     padding: 0;
+    margin-left: 150px;
 }
 
 nav ul li {
     display: inline; /* Display list items horizontally */
-    margin-right: 120px; /* Add some spacing between items */
+    margin-right: 150px; /* Add some spacing between items */
 }
 
 nav ul li a {
@@ -50,13 +52,16 @@ nav ul li a {
     font-size: x-large;
 }
 h2 {
+    color: black;
     font-weight: bold;
     font-size: 40px;
 }
 h3{
+    color: black;
     font-size: 35px;
 }
 p{
+    color: black;
     font-size: 28px;
 }
 .content{
@@ -67,3 +72,27 @@ p{
     font-size: large;
     align-items: left;
 }
+
+.button-container {
+    display: flex;
+    padding :25px;
+    justify-content: center;
+  }
+  
+  button {
+    width: 200px;
+    padding: 10px;
+    background-color: #0e5d99;
+    color: white;
+    border: none;
+    margin-right: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

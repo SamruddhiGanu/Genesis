@@ -1,73 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulator</title>
-    <link href="simulator.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulator</title>
+<style>
+    .Header{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+    letter-spacing: 2px;
+
+    
+}
+
+nav {
+    margin-top: 9px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 10px 20px; /* Padding around the navigation items */
+    text-align: center;
+    size: 100px;
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 120px; /* Add some spacing between items */
+}
+
+nav ul li a {
+    color: white; /* Text color for navigation links */
+    text-decoration: none; /* Remove underline from links */
+    size: 100px;
+    font-size: x-large;
+}
+body {
+    background: url('q.jpg') no-repeat fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.content {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: center;
+}
+.header {
+    margin-bottom: 30px;
+}
+h1, h2 {
+    color: #0073ff;
+}
+input[type="number"] {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #fa4343;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #ffc823;
+}
+.result-container {
+    margin-top: 30px;
+    display: none;
+}
+.result-box {
+    background-color: rgba(255, 184, 32, 0.9);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.subject-name {
+    font-weight: bold;
+}
+.subject-score {
+    background-color: #fa4343;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.firecracker {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 999;
+    display: none;
+    animation: firecracker-animation 1s ease-out forwards;
+}
+@keyframes firecracker-animation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+</style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="calculator.html">Calculator</a></li>
-            <li><a href="predictor.html">AimAssistor</a></li>
-            <li><a href="simulator.html">Analyser</a></li>
-            <li><a href="Analyser.html">Simulator</a></li>
+            <li><a href="Calculator Sem1.html">Calculator</a></li>
+            <li><a href="Aim Assistor.html">AimAssistor</a></li>
+            <li><a href="Analyser.html">Analyser</a></li>
+            <li><a href="Simulator.html">Simulator</a></li>
         </ul>
     </nav>
-    <div class="header">
-        <h1>ANALYSER</h1>
+<div class="container">
+    <div class="content">
+        <div class="header">
+            
+            <img class="university-banner" src="SPPU.jpg" alt="University Banner">
+            <h1>GPA Simulator</h1>
+        </div>
+        <div class="calculator-form" id="calculatorForm">
+            <h2>Enter Your Desired GPA</h2>
+            <input type="number" id="desiredCGPA" placeholder="Desired CGPA" min="0" max="10" step="0.01">
+            <button type="button" onclick="calculateMinimumMarks()">Calculate</button>
+        </div>
+        <div class="result-container" id="resultContainer">
+            <div class="result-box" id="resultBox">
+                <div class="result" id="result"></div>
+                <div class="firecracker" id="firecracker"></div>
+            </div>
+        </div>
     </div>
-    <div class="white-box"
-        <div class="container">
-            <h2>Enter CGPA and InSem Marks</h2>
-            <div>
-                <label for="cgpa"><b>CGPA :<b></label>
-                <input type="number" id="cgpa" step="0.25" min="0" max="10" placeholder="Enter CGPA ">
-            </div>
-            <br>
-            <div class="subject-row">
-                <div class="subject-name">Subject 1:</div>
-                <div class="subject-box">
-                    <input type="number" id="subject1" step="1" min="0" max="30" placeholder="Marks ">
-                </div>
-            </div>
-            <div class="subject-row">
-                <div class="subject-name">Subject 2:</div>
-                <div class="subject-box">
-                    <input type="number" id="subject2" step="1" min="0" max="30" placeholder="Marks">
-                </div>
-            </div>
-            <div class="subject-row">
-                <div class="subject-name">Subject 3:</div>
-                <div class="subject-box">
-                    <input type="number" id="subject3" step="1" min="0" max="30" placeholder="Marks">
-                </div>
-            </div>
-            <div class="subject-row">
-                <div class="subject-name">Subject 4:</div>
-                <div class="subject-box">
-                    <input type="number" id="subject4" step="1" min="0" max="30" placeholder="Marks">
-                </div>
-            </div>
-            <div class="subject-row">
-                <div class="subject-name">Subject 5:</div>
-                <div class="subject-box">
-                    <input type="number" id="subject5" step="1" min="0" max="30" placeholder="Marks">
-                </div>
-            <br>
-        <button onclick="calculateMarks()">Calculate EndSem Marks</button>
-    </div>
-    <!-- Placeholders for displaying predicted end semester marks -->
-    
-    <p id="subject1EndSemMarks"></p>
-    <p id="subject2EndSemMarks"></p>
-    <p id="subject3EndSemMarks"></p>
-    <p id="subject4EndSemMarks"></p>
-    <p id="subject5EndSemMarks"></p>
-    </div>
-    <script src="simulator.js"></script>
+</div>
+<script>
+function calculateMinimumMarks() {
+    var desiredCGPA = parseFloat(document.getElementById("desiredCGPA").value);
 
+    if (desiredCGPA > 10) {
+        alert("Error: GPA cannot be more than 10.");
+        return; // Exit the function if GPA is more than 10
+    }
+
+    // Preference order of subjects
+    var preferenceOrder = ["PPS/Mechanics", "BEE/BXE", "SME", "Maths", "Chem/Physics", "Term Work [All subjects]"];
+
+    // Initialize marks for all subjects to 80
+    var subjects = [
+        { name: "PPS/Mechanics", marks: 80 },
+        { name: "BEE/BXE", marks: 80 },
+        { name: "SME", marks: 80 },
+        { name: "Maths", marks: 80 },
+        { name: "Chem/Physics", marks: 80 },
+        { name: "Term Work", marks: 20} // Term Work initialized with 25 marks
+    ];
+
+    var totalCredits = 0;
+
+    // Calculate total credits based on marks
+    subjects.forEach(subject => {
+            if (subject.name === "Term Work") {
+                if (subject.marks >= 20) totalCredits += 60;
+                else if (subject.marks >= 17.5) totalCredits += 54;
+                else if (subject.marks >= 15) totalCredits += 48;
+                // Add more conditions as needed for different score ranges
+            } else if (subject.name === "Chem/Physics") {
+                if (subject.marks >= 80) totalCredits += 40;
+                else if (subject.marks >= 70) totalCredits += 36;
+                else if (subject.marks >= 60) totalCredits += 32; 
+            }else {
+                if (subject.marks >= 80) totalCredits += 30;
+                else if (subject.marks >= 70) totalCredits += 27;
+                else if (subject.marks >= 60) totalCredits += 24;
+            }
+        });
+    // Calculate acquired CGPA based on total credits
+    var acquiredCGPA = (totalCredits / 220);
+
+    // Loop until acquired CGPA matches input CGPA
+    var i = 0; // Initialize index for preference order
+    while (acquiredCGPA*10 > desiredCGPA) {
+        if (preferenceOrder[i] === "Term Work") {
+            // Reduce marks by 2.5 for Term Work subject
+            subjects[i].marks -= 2.5;
+        } else {
+            // Reduce marks by 10 for other subjects
+            subjects[i].marks -= 10;
+        }
+
+        // Recalculate total credits
+        totalCredits = 0;
+        subjects.forEach(subject => {
+            if (subject.name === "Term Work") {
+                if (subject.marks >= 20) totalCredits += 60;
+                else if (subject.marks >= 17.5) totalCredits += 54;
+                else if (subject.marks >= 15) totalCredits += 48;
+                // Add more conditions as needed for different score ranges
+            } else if (subject.name === "Chem/Physics") {
+                if (subject.marks >= 80) totalCredits += 40;
+                else if (subject.marks >= 70) totalCredits += 36;
+                else if (subject.marks >= 60) totalCredits += 32; 
+            }else {
+                if (subject.marks >= 80) totalCredits += 30;
+                else if (subject.marks >= 70) totalCredits += 27;
+                else if (subject.marks >= 60) totalCredits += 24;
+            }
+        });
+
+        // Recalculate acquired CGPA
+        acquiredCGPA = (totalCredits / 220);
+
+        // Move to the next subject in the preference order
+        i++;
+
+        // If we have reached the end of the preference order, start again from the beginning
+        if (i >= preferenceOrder.length) {
+            i = 0;
+        }
+    }
+
+    // Prepare result
+    var result = "<h3>Minimum marks needed for CGPA of " + desiredCGPA + ":</h3>";
+    result += "<div class='result-item'><span class='subject-name'>Subject</span><span class='subject-score'>Marks</span></div>";
+    subjects.forEach(subject => {
+        result += `<div class='result-item'><span class='subject-name'>${subject.name}</span><span class='subject-score'>${subject.marks.toFixed(0)}</span></div>`;
+    });
+
+    result += "<h4>Consideration : You should get a Minimum 80% marks in Workshop/PBL </h4>";
+    // Display result
+    document.getElementById("result").innerHTML = result;
+    document.getElementById("resultContainer").style.display = "block";
+
+    // Display firecracker animation
+    var firecracker = document.getElementById("firecracker");
+    firecracker.style.display = "block";
+    setTimeout(function () {
+        firecracker.style.display = "none";
+    }, 1000);
+}
+    </script>
 </body>
-</html>
+</html
