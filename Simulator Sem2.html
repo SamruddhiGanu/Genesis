@@ -136,11 +136,11 @@ button:hover {
 <body>
     <nav>
         <ul>
-            <li><a href="Calculator Sem1.html">Calculator</a></li>
-            <li><a href="Aim Assistor.html">AimAssistor</a></li>
+            <li><a href="Calculator Sem2.html">Calculator</a></li>
+            <li><a href="Aim Assistor Sem2.html">AimAssistor</a></li>
             <li><a href="index.html">Home</a></li>
-            <li><a href="Analyser.html">Analyser</a></li>
-            <li><a href="Simulator.html">Simulator</a></li>
+            <li><a href="Analyser Sem2.html">Analyser</a></li>
+            <li><a href="Simulator Sem2.html">Simulator</a></li>
         </ul>
     </nav>
 <div class="container">
@@ -173,16 +173,16 @@ function calculateMinimumMarks() {
     }
 
     // Preference order of subjects
-    var preferenceOrder = ["PPS/Mechanics", "BEE/BXE", "SME", "Maths", "Chem/Physics","Term Work [All subjects]"];
+    var preferenceOrder = ["PPS/Mechanics", "BEE/BXE", "Chem/Physics", "Maths", "EG", "Term Work [All subjects]"];
 
-    
+    // Initialize marks for all subjects to 80
     var subjects = [
         { name: "PPS/Mechanics", marks: 80 },
         { name: "BEE/BXE", marks: 80 },
-        { name: "SME", marks: 80 },
-        { name: "Maths", marks: 80 },
         { name: "Chem/Physics", marks: 80 },
-        { name: "Term Work", marks: 20}
+        { name: "Maths", marks: 80 },
+        { name: "EG", marks: 40 },
+        { name: "Term Work", marks: 20} // Term Work initialized with 25 marks
     ];
 
     totalCredits = 0;
@@ -196,6 +196,10 @@ function calculateMinimumMarks() {
                 if (subject.marks >= 80) totalCredits += 40;
                 else if (subject.marks >= 70) totalCredits += 36;
                 else if (subject.marks >= 60) totalCredits += 32; 
+            } else if (subject.name === "EG") {
+                if (subject.marks >= 40) totalCredits += 30;
+                else if (subject.marks >= 35) totalCredits += 27;
+                else if (subject.marks >= 30) totalCredits += 24; 
             }else {
                 if (subject.marks >= 80) totalCredits += 30;
                 else if (subject.marks >= 70) totalCredits += 27;
@@ -211,6 +215,9 @@ function calculateMinimumMarks() {
         if (preferenceOrder[i] === "Term Work") {
             // Reduce marks by 2.5 for Term Work subject
             subjects[i].marks -= 2.5;
+        } else if (preferenceOrder[i] === "EG") {
+            // Reduce marks by 2.5 for Term Work subject
+            subjects[i].marks -= 5;
         }else {
             // Reduce marks by 10 for other subjects
             subjects[i].marks -= 10;
@@ -228,6 +235,10 @@ function calculateMinimumMarks() {
                 if (subject.marks >= 80) totalCredits += 40;
                 else if (subject.marks >= 70) totalCredits += 36;
                 else if (subject.marks >= 60) totalCredits += 32; 
+            } else if (subject.name === "EG") {
+                if (subject.marks >= 40) totalCredits += 30;
+                else if (subject.marks >= 35) totalCredits += 27;
+                else if (subject.marks >= 30) totalCredits += 24; 
             }else {
                 if (subject.marks >= 80) totalCredits += 30;
                 else if (subject.marks >= 70) totalCredits += 27;

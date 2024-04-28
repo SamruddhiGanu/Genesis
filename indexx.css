@@ -27,6 +27,7 @@ body {
     
 }
 nav {
+    margin-top: 9px;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     padding: 10px 20px; /* Padding around the navigation items */
     text-align: center;
@@ -42,7 +43,7 @@ nav ul {
 
 nav ul li {
     display: inline; /* Display list items horizontally */
-    margin-right: 150px; /* Add some spacing between items */
+    margin-right: 200px; /* Add some spacing between items */
 }
 
 nav ul li a {
